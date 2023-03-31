@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat App</title>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    #chat-box {
+      overflow: hidden;
+      width: 400px;
+      height: 570px;
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 20px;
+      background-color: rgb(16, 16, 16);
+
+    }
+
+    #user-info {
+      background-color: rgb(213, 213, 213);
+    }
+
+    #message-container {
+
+      overflow-y: scroll;
+      width: 98%;
+      max-width: 1200px;
+      border-radius: 10px;
+      align-self: left;
+      margin-right: 100px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      overflow-y: scroll;
+      display: flex;
+      flex: 1;
+
+    }
+
+    #message-container div[data-sender="true"] {
+      background-color: gray;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      width: fit-content;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      align-self: flex-end;
+
+
+    }
+
+    #message-container div[data-sender="false"] {
+      background-color: #CCC;
+      padding: 10px;
+      border-radius: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      align-self: flex-start;
+      width: fit-content;
+
+    }
+
+    #message-input {
+      width: 50px;
+      height: fit-content;
+      padding: 5px;
+      flex-grow: 1;
+
+    }
+
+    #send-container {
+      position: fixed;
+      padding-bottom: 30px;
+      bottom: 0;
+      background-color: white;
+      max-width: 1200px;
+      width: 300px;
+      display: flex;
+      position: absolute;
+      bottom: 0;
+    }
+
+    #send-input {
+
+      height: fit-content;
+      padding: 5px;
+    }
+
+    #message-input {
+      flex-grow: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="chat-box">
+    <div id="user-info"></div>
+    <div id="message-container"> </div>
+    <form id="send-container">
+      <input type="text" id="message-input" placeholder="Enter your message">
+      <button type="submit" id="send-button">Send</button>
+    </form>
+  </div>
+</body>
+
+</html>
